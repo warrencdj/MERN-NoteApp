@@ -8,6 +8,7 @@ const NoteDetailPage = () => {
   const [note, setNote] = useState(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  
 
   const navigate = useNavigate()
 
@@ -18,6 +19,7 @@ const NoteDetailPage = () => {
       try {
         const res = await api.get(`/notes/${id}`)
         setNote(res.data)
+        document.title = res.data.title
       } catch (error) {
         toast.error("Failed to fetch the note")
       } finally {

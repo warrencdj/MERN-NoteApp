@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Link, useNavigate } from "react-router"
 import toast from "react-hot-toast"
 import api from "../lib/axios"
@@ -8,6 +8,10 @@ const CreatePage = () => {
   const [title, setTitle] = useState("")
   const [content, setContent] = useState("")
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    document.title = "Create Note"
+  }, [])
 
   const navigate = useNavigate()
 

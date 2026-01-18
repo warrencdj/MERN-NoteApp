@@ -12,6 +12,10 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    document.title = "Home"
+  }, [])
+
+  useEffect(() => {
     const fetchNotes = async () => {
       try {
         const res = await api.get("/notes")
